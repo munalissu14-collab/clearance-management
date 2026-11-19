@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth, logout } from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useStudents } from "../../context/StudentContext";
 import Link from "next/link";
 import Header from "@/app/components/Header";
@@ -12,7 +12,7 @@ import ChatBotButton from "@/app/components/ChatBotButton";
 
 export default function Certificate() {
   const router = useRouter();
-  const { auth } = useAuth();
+  const { auth, logout } = useAuth();
   const { getStudentById } = useStudents();
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true);
